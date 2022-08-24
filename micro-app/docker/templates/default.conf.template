@@ -1,0 +1,71 @@
+server {
+    listen       80;
+
+    # location /api/ {
+    #    proxy_pass   ${BACKEND_URL};
+    # }
+    #开启gzip
+    gzip  on;  
+    #低于1kb的资源不压缩 
+    gzip_min_length 1k;
+    #压缩级别1-9，越大压缩率越高，同时消耗cpu资源也越多，建议设置在5左右。 
+    gzip_comp_level 5; 
+    #需要压缩哪些响应类型的资源，多个空格隔开。不建议压缩图片.
+    gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;  
+    #配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）
+    gzip_disable "MSIE [1-6]\.";  
+    #是否添加“Vary: Accept-Encoding”响应头
+    gzip_vary on;
+
+    #这里根据后端请求的路由规则进行过滤匹配，比如我在项目中将所有ajax请求的地址前面都增加了一个/api，然后这里就可以根据/api进行过滤了
+    location /bolt_api {
+
+        #rewrite break - url重写后，直接使用当前资源，不再执行location里余下的语句，完成本次请求，地址栏url不变 请参考http://blog.csdn.net/zhanlanmg/article/details/49684803
+        #这里前端ota的请求中包含了api，所以将api去掉，用来匹配后台的服务器资源，主要用于将前后端的url分离
+        #如果是tomcat启动多应用模块，需要增加应用的名称。
+        #例如tomcat的web根目录webapp中配置了2个应用A_Server，B_Server，如果我们要转发到B_Server，那么我们的配置应该是rewrite ^/api/(.*)$ /B_Server/$1 break;
+        rewrite ^/bolt_api/(.*)$ /$1 break;
+
+        #转发的域名地址，ota_server上前面upstream配置的服务器地址
+        proxy_pass ${BACKEND_URL};
+
+        #上述配置生效后，但我们点击OTA-WEB页面中的“APP管理”按钮时，浏览器的地址会变成http://localhost/#/app/list/1
+        #同时js代码中的ajax请求会以相对路径的形式发送请求/api/api-group/list?start=0&limit=10&page=1来查询数据
+        #（完整路径是：http://localhost/api/api-group/list?start=0&limit=10&page=1），
+        #由于配置了上述过滤器这个ajax的请求就会变成 http://ota_server/api-group/list?start=0&limit=10&page=1，但是浏览器的地址保持不变（rewrite break的作用）
+        #从而实现了前后端路由请求的分离。
+
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_cookie_path / /bolt_api;
+    }
+
+    location / {
+       # root   html;
+       # index  index.html index.htm;
+       # try_files $uri $uri/ /index.html;
+        add_header Access-Control-Allow-Origin *;
+        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+        add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+
+        if ($request_method = 'OPTIONS') {
+            return 204;
+        }
+        try_files $uri $uri/ /index.html;
+    }
+
+    location  /index.html {
+        add_header Cache-Control no-cache;
+        add_header Access-Control-Allow-Origin *;
+        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+        add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+
+        if ($request_method = 'OPTIONS') {
+            return 204;
+        }
+        try_files $uri $uri/ /index.html;
+    }
+}

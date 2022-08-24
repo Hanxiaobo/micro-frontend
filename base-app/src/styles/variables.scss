@@ -1,0 +1,39 @@
+// 主题色
+$themeColor: #00b85c;
+$themeBgColor: #ebfaf2;
+$themeColorDanger: #f56c6c;
+// base color
+$blue: #324157;
+$light-blue: #4f5dff;
+$red: #f56c6c;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow: #fec171;
+$panGreen: #30b08f;
+
+// sidebar
+$menuText: #bfcbd9;
+$menuActiveText: $themeColor;
+$subMenuActiveText: #f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+$menuBg: #304156;
+$menuHover: #edeeff;
+
+$subMenuBg: #1f2d3d;
+$subMenuHover: #001528;
+
+$sideBarWidth: 200px;
+
+$headerHeight: 84px;
+
+:export {
+  $my-menuText: $menuText;
+  $my-menuActiveText: $menuActiveText;
+  $my-subMenuActiveText: $subMenuActiveText;
+  $my-menuBg: $menuBg;
+  $my-menuHover: $menuHover;
+  $my-subMenuBg: $subMenuBg;
+  $my-subMenuHover: $subMenuHover;
+  $my-sideBarWidth: $sideBarWidth;
+}

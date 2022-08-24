@@ -1,0 +1,126 @@
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './atomic.scss';
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.CodeMirror-hints {
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  list-style: none;
+
+  margin: 0;
+  padding: 2px;
+
+  -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  border-radius: 3px;
+  border: 1px solid silver;
+
+  background: white;
+  font-size: 90%;
+  font-family: monospace;
+
+  max-height: 20em;
+  overflow-y: auto;
+}
+
+.CodeMirror-hint {
+  margin: 0;
+  padding: 0 4px;
+  border-radius: 2px;
+  white-space: pre;
+  color: black;
+  cursor: pointer;
+}
+
+li.CodeMirror-hint-active {
+  background: #08f;
+  color: white;
+}
+
+#app {
+  height: 100%;
+}
+
+label {
+  font-weight: 700;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+div:focus {
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+/* 定义了滚动条滑块的样式 */
+::-webkit-scrollbar-thumb {
+  background-color: #ebebeb;
+  background-clip: padding-box;
+  // border-color: #e2242400;
+  // border-style: dashed;
+  // border-width: 1.5px;
+  border-radius: 5px;
+}
+
+/* 定义了轨道的样式 */
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 10px;
+
+  /* 滚动条里面轨道 */
+  box-shadow: unset;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 164, 173, 0.4);
+}
+
+// 公共tooltip样式
+.el-popper.is-dark {
+  max-width: 300px !important;
+}
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: #00b85c;
+}
+/** --日期控件【此刻】隐藏样式--*/
+.disable-now-picker {
+  .el-button.el-button--text {
+    display: none;
+  }
+}

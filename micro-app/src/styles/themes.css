@@ -1,0 +1,93 @@
+.dark{
+  color-scheme:dark;
+  --el-color-primary: #00B85C;
+  --el-color-primary-dark-2: #00B85C;
+  --el-color-primary-light-3: #00B85C;
+  --el-color-primary-light-5: #00B85C;
+  --el-color-primary-light-9: #c9e9d9;
+  --el-table-c-bg-color: #17171F;
+
+  --text-color-regular: #BBBBBB;
+  --bg-color: #17171F;
+  --layout-border-color: #292931;
+  --tab-color: #A6A6A6;
+  --has-change-color: #A6A6A6;
+  --tab-box-shadow-color: #292931;
+  --drag-line-color: #292931;
+  --tab-active: #292931;
+  --tab-active-border-color: #303030;
+  --tab-border-color: #44444C;
+  --sql-menu-bar-bgcolor: #44444C;
+  --sql-menu-bar-border-color: #44444C;
+  --sql-bg-color: #000000;
+  --sql-footer-bg-color: #17171F;
+  --tree-title-color: #D9D9D9;
+  --modal-tips-color: #ccd1d8;
+  --tab-add-border-color: #32323a;
+  --download-color: white;
+  --sql-placeholder-color: #666;
+  --el-button-text-color: #01b85c;
+  --table-row-hover: #262727;
+  --table-border-color: #363637;
+  --table-body-color: #cfd3dc;
+  --table-header-color: #a3a6ad;
+  --tab-icon-color: #00b85c;
+  --tab-icon-hover-color: #4CCD8C;
+}
+.dark .el-input__wrapper {
+  background-color: #292931 !important;
+}
+.dark .el-table__header-wrapper tr th.el-table-fixed-column--left, .dark .el-table__header-wrapper tr th.el-table-fixed-column--right {
+  background-color: #17171F;
+}
+.el-table__header-wrapper tr th.el-table-fixed-column--left, .el-table__header-wrapper tr th.el-table-fixed-column--right {
+  background-color: #F6F7FA;
+}
+.el-table th.el-table__cell {
+  background-color: #F6F7FA;
+}
+.dark .el-table th.el-table__cell {
+  background-color: #17171F;
+}
+.el-table.is-scrolling-none th.el-table-fixed-column--left, .el-table.is-scrolling-none th.el-table-fixed-column--right {
+  background-color: #F6F7FA;
+}
+.dark .el-table.is-scrolling-none th.el-table-fixed-column--left, .dark .el-table.is-scrolling-none th.el-table-fixed-column--right {
+  background-color: #17171F;
+}
+.el-table-v2__header-cell, .el-table-v2__header-row {
+  background-color: #F6F7FA;
+}
+.dark .el-table-v2__header-cell, .dark .el-table-v2__header-row {
+  background-color: #17171F;
+}
+#app{
+  color-scheme:dark;
+  --bg-color: #ffffff;
+  --text-color-regular: #595959;
+  --tab-color: #262626;
+  --has-change-color: #D9D9D9;
+  --tab-box-shadow-color: #f5f5f5;
+  --layout-border-color: #d8dce5;
+  --drag-line-color: #ebebeb;
+  --tab-active: #fff;
+  --tab-active-border-color:#EBEBEB;
+  --tab-border-color: #EBEBEB;
+  --sql-menu-bar-bgcolor: #f7f7f7 ;
+  --sql-menu-bar-border-color: #ddd;
+  --sql-bg-color: #ffffff;
+  --sql-footer-bg-color: #F6F7FA;
+  --tree-title-color: #595959;
+  --modal-tips-color: #262626;
+  --tab-add-border-color: #d8dce5;
+  --download-color: #909399;
+  --sql-placeholder-color: #c5c5c5;
+  --el-table-c-bg-color: #F6F7FA;
+  --el-button-text-color: #01b85c;
+  --table-row-hover: #f5f7fa;
+  --table-border-color: #ebeef5;
+  --table-body-color: #606266;
+  --table-header-color: #a3a6ad;
+  --tab-icon-color: #F48400;
+  --tab-icon-hover-color: #C36900;
+}

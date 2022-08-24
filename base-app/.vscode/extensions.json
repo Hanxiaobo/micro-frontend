@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "mgmcdermott.vscode-language-babel",
+    "pranaygp.vscode-css-peek",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "ecmel.vscode-html-css",
+    "ionutvmi.path-autocomplete",
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "octref.vetur",
+    "vscode-icons-team.vscode-icons",
+    "jcbuisson.vue",
+    "hollowtree.vue-snippets",
+    "vue.volar"
+  ]
+}
